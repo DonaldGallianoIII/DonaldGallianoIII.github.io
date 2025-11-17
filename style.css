@@ -425,6 +425,28 @@ body {
     line-height: 1.8;
 }
 
+.about-intro-enhanced {
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 102, 255, 0.1);
+}
+
+.intro-lead {
+    font-size: 1.375rem;
+    color: var(--text-primary);
+    line-height: 1.8;
+    font-weight: 400;
+}
+
+.intro-lead strong {
+    color: var(--primary);
+    font-weight: 600;
+}
+
 /* Skills Highlight */
 .skills-highlight {
     background: white;
@@ -438,6 +460,45 @@ body {
     text-align: center;
     font-size: 2.25rem;
     margin-bottom: 3rem;
+}
+
+.skills-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.skill-badge-item {
+    background: var(--bg-light);
+    color: var(--text-primary);
+    padding: 1rem 1.75rem;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    transition: all 0.3s ease;
+}
+
+.skill-badge-item:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    background: white;
+}
+
+.skill-badge-item.featured {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    border: none;
+    font-weight: 600;
+    font-size: 1.0625rem;
+}
+
+.skill-badge-item.featured:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 8px 24px rgba(0, 102, 255, 0.25);
 }
 
 .skills-grid {
