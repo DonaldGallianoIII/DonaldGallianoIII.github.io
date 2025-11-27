@@ -35,7 +35,7 @@
     <section class="page-header">
         <div class="container">
             <h1>Data Analytics Portfolio</h1>
-            <p>Business intelligence, healthcare data analysis, and data-driven decision making</p>
+            <p>Real-time data extraction, statistical modeling, and decision support systems</p>
         </div>
     </section>
 
@@ -44,112 +44,130 @@
         <div class="container">
             <div class="project-featured">
                 <div class="project-header">
-                    <h2>Pokemon Auto Chess Probability Calculator</h2>
+                    <h2>PAC Live Data Calculator</h2>
+                    <p style="color: #6b7280; margin-top: 0.5rem;">Chrome Extension · v2.17.0 · Open Source</p>
                     <div class="project-tags">
-                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">Chrome Extension</span>
+                        <span class="tag">Real-time Data Extraction</span>
                         <span class="tag">Statistical Modeling</span>
-                        <span class="tag">Interactive Dashboards</span>
-                        <span class="tag">Real-time Analytics</span>
+                        <span class="tag">Reverse Engineering</span>
                     </div>
                 </div>
 
                 <div class="project-summary">
-                    <h3>Project Overview</h3>
-                    <p>A comprehensive probability modeling and decision support system that calculates real-time odds for competitive gameplay. This project demonstrates advanced statistical analysis, interactive data visualization, and the ability to translate complex domain logic into actionable analytics.</p>
+                    <h3>The Problem</h3>
+                    <p>Pokemon Auto Chess is a competitive game where players need to make probability-based decisions about which units to pursue — but the game provides no analytics. Players were left guessing at odds, manually tracking what opponents had taken, and making suboptimal decisions due to incomplete information.</p>
                     
-                    <p>The calculator processes multiple variables simultaneously to provide probability curves, ROI analysis, sensitivity modeling, and expected value calculations - the same analytical framework used in healthcare quality improvement and business intelligence applications.</p>
+                    <h3>What I Built</h3>
+                    <p>A Chrome extension that reverse-engineers the game client to extract live game state, processes a 408kb data file containing 1,060+ entities with evolution chains and rarity mappings, and calculates real-time probability distributions across all 8 players with pool depletion tracking. The tool runs geometric distribution math to show exact odds of finding target units, expected rolls to hit confidence thresholds, and warns when targets become contested or impossible.</p>
                 </div>
 
                 <div class="project-screenshots">
-                    <h3>Key Features & Visualizations</h3>
+                    <h3>Live Interface</h3>
                     
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="images/pac-dashboard.png" alt="Analytics Dashboard with probability curves and ROI analysis">
-                            <p class="screenshot-caption">Interactive analytics dashboard with real-time probability curves, ROI analysis, and sensitivity modeling</p>
+                            <img src="images/pac-overlay.png" alt="PAC Live Data main overlay panel showing pool state, target tracking, and probability calculations">
+                            <p class="screenshot-caption">Main overlay panel with live pool tracking, target selection, evolution family counting, and probability calculations updating in real-time</p>
                         </div>
                         
                         <div class="screenshot-item">
-                            <img src="images/pac-calculator.png" alt="Pool calculator interface">
-                            <p class="screenshot-caption">Advanced probability calculator with multi-variable inputs and dynamic result updates</p>
+                            <img src="images/pac-team-tracker.png" alt="Team Tracker panel showing multi-target tracking with probability calculations">
+                            <p class="screenshot-caption">Team Tracker: Multi-target tracking with per-roll probability, expected rolls to hit confidence threshold, and combined probability across all targets</p>
                         </div>
                         
                         <div class="screenshot-item">
-                            <img src="images/pac-voice.png" alt="Voice interface for hands-free data entry">
-                            <p class="screenshot-caption">Voice-activated interface for hands-free data entry and real-time decision support</p>
+                            <img src="images/pac-game-view.png" alt="In-game view showing the extension overlay during live gameplay">
+                            <p class="screenshot-caption">Live gameplay view with minimized overlay showing pool state — expands on demand for full probability analysis</p>
+                        </div>
+                        
+                        <div class="screenshot-item">
+                            <img src="images/pac-speed-settings.png" alt="Polling speed settings from 250ms to 5 seconds">
+                            <p class="screenshot-caption">Configurable polling speeds from 250ms to 5s, balancing update frequency with performance</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-technical">
-                    <h3>Technical Capabilities Demonstrated</h3>
+                    <h3>Technical Deep Dive</h3>
                     <div class="capabilities-grid">
                         <div class="capability-card">
-                            <h4>📊 Statistical Modeling</h4>
+                            <h4>🔍 Data Extraction</h4>
                             <ul>
-                                <li>Binomial probability calculations</li>
-                                <li>Expected value analysis</li>
-                                <li>Confidence intervals and variance modeling</li>
-                                <li>Multi-scenario probability forecasting</li>
+                                <li>Reverse-engineered game client to locate state objects</li>
+                                <li>Recursive traversal algorithm to find room/session data</li>
+                                <li>DOM scraping with fallback logic for shop/board/bench</li>
+                                <li>Cross-player state aggregation (8 simultaneous players)</li>
                             </ul>
                         </div>
                         
                         <div class="capability-card">
-                            <h4>📈 Data Visualization</h4>
+                            <h4>📊 Data Processing</h4>
                             <ul>
-                                <li>Interactive probability curves</li>
-                                <li>ROI and sensitivity analysis charts</li>
-                                <li>Real-time dashboard updates</li>
-                                <li>Color-coded decision support indicators</li>
+                                <li>Cleaned 408kb game data into structured lookup tables</li>
+                                <li>1,060+ Pokemon mapped to rarities and evolution chains</li>
+                                <li>Pool size tracking by rarity tier (common → ultra)</li>
+                                <li>Wild Pokemon detection with PVE round awareness</li>
                             </ul>
                         </div>
                         
                         <div class="capability-card">
-                            <h4>⚙️ Technical Implementation</h4>
+                            <h4>📈 Statistical Engine</h4>
                             <ul>
-                                <li>Python for statistical calculations</li>
-                                <li>JavaScript for interactive UI/UX</li>
-                                <li>Voice recognition integration</li>
-                                <li>Responsive design for mobile/desktop</li>
+                                <li>Geometric distribution for expected roll calculations</li>
+                                <li>Per-slot probability with 6-slot shop aggregation</li>
+                                <li>Configurable confidence intervals (default 75%)</li>
+                                <li>Combined probability across multiple targets</li>
                             </ul>
                         </div>
                         
                         <div class="capability-card">
-                            <h4>🎯 Business Value</h4>
+                            <h4>⚡ Real-time System</h4>
                             <ul>
-                                <li>Decision support under uncertainty</li>
-                                <li>Risk-reward optimization</li>
-                                <li>Resource allocation modeling</li>
-                                <li>Performance tracking and KPIs</li>
+                                <li>Polling from 250ms to 5s with throttling logic</li>
+                                <li>State caching to prevent browser freeze</li>
+                                <li>Draggable UI overlay with minimize/expand</li>
+                                <li>LocalStorage persistence for user preferences</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-impact">
-                    <h3>Impact & Recognition</h3>
-                    <p>This tool was adopted by competitive players and recognized by game developers, demonstrating the ability to identify analytical needs, build solutions, and deliver value to end users - the same cycle used in healthcare analytics and business intelligence consulting.</p>
+                    <h3>Why This Matters for Analytics Work</h3>
+                    <p>This project demonstrates the full analytics lifecycle: identifying a decision-support gap, extracting data from an undocumented system, transforming messy source data into clean structured formats, building statistical models, and delivering real-time insights through an intuitive interface. The same pattern applies to healthcare analytics — extracting EHR data, cleaning it for analysis, calculating quality metrics, and surfacing actionable insights to clinicians.</p>
                 </div>
 
                 <div class="project-links">
-                    <a href="https://donaldgallianoiii.github.io/Pokemon-Auto-Chess-Probability-Calculator-/" class="cta-button primary" target="_blank">View Live Calculator</a>
-                    <a href="https://github.com/DonaldGallianoIII/Pokemon-Auto-Chess-Probability-Calculator-" class="cta-button secondary" target="_blank">View Code on GitHub</a>
+                    <a href="https://donaldgallianoiii.github.io/Pokemon-Auto-Chess-Live-Data-Calculator/" class="cta-button primary" target="_blank">View Project Site</a>
+                    <a href="https://github.com/DonaldGallianoIII/Pokemon-Auto-Chess-Live-Data-Calculator" class="cta-button secondary" target="_blank">View Code on GitHub</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Additional Projects Coming Soon -->
+    <!-- Skills Summary -->
     <section class="section" style="background: #f8f9fa;">
         <div class="container">
-            <h2 style="text-align: center; margin-bottom: 2rem;">Additional Projects in Development</h2>
-            <div class="project-types">
-                <ul>
-                    <li>Healthcare outcomes analysis and predictive modeling using Epic EHR data</li>
-                    <li>Population health dashboards for Jefferson Parish (435,000 residents)</li>
-                    <li>Clinical operations optimization with SQL and Python</li>
-                    <li>Healthcare quality metrics and performance tracking with Tableau</li>
-                </ul>
+            <h2 style="text-align: center; margin-bottom: 2rem;">Technical Skills</h2>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <h4>Languages & Tools</h4>
+                    <p>SQL, Python, JavaScript, HTML/CSS, Git</p>
+                </div>
+                <div class="capability-card">
+                    <h4>BI & Visualization</h4>
+                    <p>Tableau, Power BI, Excel (advanced)</p>
+                </div>
+                <div class="capability-card">
+                    <h4>Healthcare Systems</h4>
+                    <p>Epic EHR, HL7/FHIR, ICD-10/CPT</p>
+                </div>
+                <div class="capability-card">
+                    <h4>Methods</h4>
+                    <p>ETL, Statistical Modeling, Data Validation</p>
+                </div>
             </div>
         </div>
     </section>
