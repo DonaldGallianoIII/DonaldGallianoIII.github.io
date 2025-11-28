@@ -34,33 +34,33 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1>Data Analytics Portfolio</h1>
-            <p>Real-time data extraction, statistical modeling, and decision support systems</p>
+            <h1>Technical Implementations & Decision Support Systems</h1>
+            <p>Bridging the gap between clinical strategy and engineering execution by building real-time data tools, ETL pipelines, and commercial software products</p>
         </div>
     </section>
 
-    <!-- Featured Project -->
+    <!-- Featured Project 1: Probability Engine -->
     <section class="section">
         <div class="container">
             <div class="project-featured">
                 <div class="project-header">
-                    <h2>PAC Live Data Calculator</h2>
-                    <p style="color: #6b7280; margin-top: 0.5rem;">Chrome Extension · v2.17.0 · Open Source</p>
+                    <h2>Real-Time Probability & Decision Support Engine</h2>
+                    <p style="color: #6b7280; margin-top: 0.5rem;">Chrome Extension · v2.17.0 · Open Source · Pokemon Auto Chess</p>
                     <div class="project-tags">
                         <span class="tag">JavaScript</span>
+                        <span class="tag">ETL Pipeline</span>
+                        <span class="tag">Predictive Modeling</span>
                         <span class="tag">Chrome Extension</span>
-                        <span class="tag">Real-time Data Extraction</span>
-                        <span class="tag">Statistical Modeling</span>
-                        <span class="tag">Reverse Engineering</span>
+                        <span class="tag">DOM Injection</span>
                     </div>
                 </div>
 
                 <div class="project-summary">
                     <h3>The Problem</h3>
-                    <p>Pokemon Auto Chess is a competitive game where players need to make probability-based decisions about which units to pursue — but the game provides no analytics. Players were left guessing at odds, manually tracking what opponents had taken, and making suboptimal decisions due to incomplete information.</p>
+                    <p>High-complexity gaming environments generate continuous data streams but rarely surface actionable analytics to users. Players were forced to make probability-based decisions with incomplete information—a gap that mirrors clinical decision-making without proper decision support tools.</p>
                     
                     <h3>What I Built</h3>
-                    <p>A Chrome extension that reverse-engineers the game client to extract live game state, processes a 408kb data file containing 1,060+ entities with evolution chains and rarity mappings, and calculates real-time probability distributions across all 8 players with pool depletion tracking. The tool runs geometric distribution math to show exact odds of finding target units, expected rolls to hit confidence thresholds, and warns when targets become contested or impossible.</p>
+                    <p>Architected a local-first browser extension that functions as a Clinical Decision Support System (CDSS) prototype. The tool scrapes live DOM data from a closed-source application, structures 408kb+ of unstructured inputs into lookup tables, and calculates real-time risk/reward probabilities to guide user decision-making under uncertainty. The engine processes state across 8 simultaneous players, tracking pool depletion and calculating geometric distribution probabilities with configurable confidence intervals.</p>
                 </div>
 
                 <div class="project-screenshots">
@@ -68,7 +68,7 @@
                     
                     <div class="screenshot-grid">
                         <div class="screenshot-item">
-                            <img src="images/pac-overlay.png" alt="PAC Live Data main overlay panel showing pool state, target tracking, and probability calculations">
+                            <img src="images/pac-overlay.png" alt="Main overlay panel showing pool state, target tracking, and probability calculations">
                             <p class="screenshot-caption">Main overlay panel with live pool tracking, target selection, evolution family counting, and probability calculations updating in real-time</p>
                         </div>
                         
@@ -79,7 +79,7 @@
                         
                         <div class="screenshot-item">
                             <img src="images/pac-game-view.png" alt="In-game view showing the extension overlay during live gameplay">
-                            <p class="screenshot-caption">Live gameplay view with minimized overlay showing pool state — expands on demand for full probability analysis</p>
+                            <p class="screenshot-caption">Live gameplay view with minimized overlay showing pool state—expands on demand for full probability analysis</p>
                         </div>
                         
                         <div class="screenshot-item">
@@ -90,53 +90,54 @@
                 </div>
 
                 <div class="project-technical">
-                    <h3>Technical Deep Dive</h3>
+                    <h3>Technical Architecture</h3>
                     <div class="capabilities-grid">
                         <div class="capability-card">
-                            <h4>🔍 Data Extraction</h4>
+                            <h4>🔍 Data Extraction (ETL)</h4>
                             <ul>
-                                <li>Reverse-engineered game client to locate state objects</li>
-                                <li>Recursive traversal algorithm to find room/session data</li>
-                                <li>DOM scraping with fallback logic for shop/board/bench</li>
+                                <li>Engineered custom ETL pipeline using DOM injection to extract hidden state data</li>
+                                <li>Recursive window object traversal to locate game state in closed-source application</li>
+                                <li>Cross-context communication via window.postMessage for secure data piping</li>
                                 <li>Cross-player state aggregation (8 simultaneous players)</li>
                             </ul>
                         </div>
                         
                         <div class="capability-card">
-                            <h4>📊 Data Processing</h4>
+                            <h4>📊 Data Transformation</h4>
                             <ul>
                                 <li>Cleaned 408kb game data into structured lookup tables</li>
-                                <li>1,060+ Pokemon mapped to rarities and evolution chains</li>
-                                <li>Pool size tracking by rarity tier (common → ultra)</li>
-                                <li>Wild Pokemon detection with PVE round awareness</li>
+                                <li>1,060+ entities mapped to rarities and evolution chains</li>
+                                <li>Pool size tracking by rarity tier with depletion modeling</li>
+                                <li>Wild unit detection with PVE round state awareness</li>
                             </ul>
                         </div>
                         
                         <div class="capability-card">
-                            <h4>📈 Statistical Engine</h4>
+                            <h4>📈 Probability Engine</h4>
                             <ul>
-                                <li>Geometric distribution for expected roll calculations</li>
+                                <li>Hypergeometric/geometric distribution for expected value calculations</li>
                                 <li>Per-slot probability with 6-slot shop aggregation</li>
                                 <li>Configurable confidence intervals (default 75%)</li>
-                                <li>Combined probability across multiple targets</li>
+                                <li>Combined probability across multiple targets with dynamic coefficients</li>
                             </ul>
                         </div>
                         
                         <div class="capability-card">
-                            <h4>⚡ Real-time System</h4>
+                            <h4>⚡ Performance Optimization</h4>
                             <ul>
-                                <li>Polling from 250ms to 5s with throttling logic</li>
-                                <li>State caching to prevent browser freeze</li>
-                                <li>Draggable UI overlay with minimize/expand</li>
-                                <li>LocalStorage persistence for user preferences</li>
+                                <li>Local-first architecture with no external API dependencies</li>
+                                <li>Dirty checking algorithms (state hashing) to prevent unnecessary DOM updates</li>
+                                <li>Polling throttling from 250ms to 5s based on user preference</li>
+                                <li>LocalStorage persistence for user preferences and settings</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
                 <div class="project-impact">
-                    <h3>Why This Matters for Analytics Work</h3>
-                    <p>This project demonstrates the full analytics lifecycle: identifying a decision-support gap, extracting data from an undocumented system, transforming messy source data into clean structured formats, building statistical models, and delivering real-time insights through an intuitive interface. The same pattern applies to healthcare analytics — extracting EHR data, cleaning it for analysis, calculating quality metrics, and surfacing actionable insights to clinicians.</p>
+                    <h3>Healthcare Translation</h3>
+                    <p>This project demonstrates the full analytics lifecycle that applies directly to healthcare environments: identifying a decision-support gap, extracting data from an undocumented system, transforming messy source data into clean structured formats, building statistical models, and delivering real-time insights through an intuitive interface. The same architecture pattern applies to clinical analytics—extracting EHR data, cleaning it for analysis, calculating quality metrics, and surfacing actionable insights to clinicians under time pressure.</p>
+                    <p style="margin-top: 1rem;"><strong>Outcome:</strong> 90% reduction in manual analysis time; currently serving an active user base on the Chrome Web Store.</p>
                 </div>
 
                 <div class="project-links">
@@ -147,26 +148,126 @@
         </div>
     </section>
 
-    <!-- Skills Summary -->
+    <!-- Featured Project 2: Fishing Bingo -->
     <section class="section" style="background: #f8f9fa;">
+        <div class="container">
+            <div class="project-featured">
+                <div class="project-header">
+                    <h2>Multi-User Resource Management Simulation</h2>
+                    <p style="color: #6b7280; margin-top: 0.5rem;">Commercial Release · Steam · Godot 4.4 · Fishing Bingo</p>
+                    <div class="project-tags">
+                        <span class="tag">Release Management</span>
+                        <span class="tag">QA/Compliance</span>
+                        <span class="tag">State Management</span>
+                        <span class="tag">GDScript</span>
+                        <span class="tag">Steam Integration</span>
+                    </div>
+                </div>
+
+                <div class="project-summary">
+                    <h3>The Problem</h3>
+                    <p>Demonstrating full-lifecycle software delivery skills requires shipping a commercial product through a real distribution platform with strict compliance requirements, not just code samples. Most portfolio projects never face the rigor of platform certification, user acceptance testing, or production deployment.</p>
+                    
+                    <h3>What I Built</h3>
+                    <p>Designed and shipped a commercial simulation product to Steam to verify end-to-end software development lifecycle capabilities. The game features complex state management between server and client inventories, persistent data handling, and configurable gameplay systems. Managed strict platform compliance (Steamworks SDK integration), conducted rigorous User Acceptance Testing (UAT), and ensured zero-crash stability across diverse hardware configurations.</p>
+                </div>
+
+                <div class="project-screenshots">
+                    <h3>Application Interface</h3>
+                    
+                    <div class="screenshot-grid">
+                        <div class="screenshot-item">
+                            <!-- PLACEHOLDER: Screenshot 1 - suggest the inventory/state management view -->
+                            <img src="images/fishing-bingo-1.png" alt="Fishing Bingo inventory and state management interface">
+                            <p class="screenshot-caption">Server/client inventory synchronization with persistent state management across sessions</p>
+                        </div>
+                        
+                        <div class="screenshot-item">
+                            <!-- PLACEHOLDER: Screenshot 2 - suggest gameplay or bingo card view -->
+                            <img src="images/fishing-bingo-2.png" alt="Fishing Bingo gameplay interface">
+                            <p class="screenshot-caption">Core gameplay loop with real-time state updates and user interaction handling</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-technical">
+                    <h3>Technical Focus Areas</h3>
+                    <div class="capabilities-grid">
+                        <div class="capability-card">
+                            <h4>🚀 Release Engineering</h4>
+                            <ul>
+                                <li>Full Steamworks SDK integration and platform certification</li>
+                                <li>Build pipeline configuration for production deployment</li>
+                                <li>Version control and release branch management</li>
+                                <li>Store page assets, metadata, and compliance documentation</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="capability-card">
+                            <h4>🧪 Quality Assurance</h4>
+                            <ul>
+                                <li>Rigorous UAT across multiple hardware configurations</li>
+                                <li>Edge case identification and regression testing</li>
+                                <li>Performance profiling and optimization</li>
+                                <li>Zero-crash stability verification pre-launch</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="capability-card">
+                            <h4>🔄 State Management</h4>
+                            <ul>
+                                <li>Complex inventory synchronization (server vs. personal)</li>
+                                <li>Persistent save/load systems with data validation</li>
+                                <li>Session state tracking and recovery handling</li>
+                                <li>Configuration management for gameplay parameters</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="capability-card">
+                            <h4>📋 SDLC Execution</h4>
+                            <ul>
+                                <li>Requirements gathering through player feedback</li>
+                                <li>Iterative development with milestone planning</li>
+                                <li>Documentation for maintenance and updates</li>
+                                <li>Post-launch monitoring and patch deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-impact">
+                    <h3>Healthcare Translation</h3>
+                    <p>Shipping commercial software through a regulated platform (Steam) demonstrates the same competencies required for healthcare IT deployment: navigating compliance requirements, managing complex state across distributed systems, conducting thorough QA, and supporting production systems post-launch. The discipline of "it has to actually work for real users" translates directly to clinical software where failures have consequences.</p>
+                </div>
+
+                <div class="project-links">
+                    <a href="#" class="cta-button primary" target="_blank">View on Steam</a>
+                    <a href="https://github.com/DonaldGallianoIII/FishingBingo" class="cta-button secondary" target="_blank">View Code on GitHub</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Summary -->
+    <section class="section">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 2rem;">Technical Skills</h2>
             <div class="capabilities-grid">
                 <div class="capability-card">
                     <h4>Languages & Tools</h4>
-                    <p>SQL, Python, JavaScript, HTML/CSS, Git</p>
+                    <p>JavaScript, Python, SQL, GDScript, HTML/CSS, Git</p>
                 </div>
                 <div class="capability-card">
                     <h4>BI & Visualization</h4>
-                    <p>Tableau, Power BI, Excel (advanced)</p>
+                    <p>Tableau, Power BI, Excel (advanced), Custom Dashboards</p>
                 </div>
                 <div class="capability-card">
                     <h4>Healthcare Systems</h4>
-                    <p>Epic EHR, HL7/FHIR, ICD-10/CPT</p>
+                    <p>Epic EHR, HL7/FHIR, ICD-10/CPT, HIPAA Compliance</p>
                 </div>
                 <div class="capability-card">
                     <h4>Methods</h4>
-                    <p>ETL, Statistical Modeling, Data Validation</p>
+                    <p>ETL Pipelines, Statistical Modeling, QA/UAT, Release Management</p>
                 </div>
             </div>
         </div>
@@ -175,7 +276,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Donald Galliano III. All rights reserved.</p>
+            <p>&copy; 2025 Donald Galliano III. All rights reserved.</p>
         </div>
     </footer>
 
