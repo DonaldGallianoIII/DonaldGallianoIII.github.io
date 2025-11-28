@@ -69,7 +69,7 @@
         }
 
         .accordion-item.active .accordion-content {
-            max-height: 2000px;
+            max-height: 3000px;
         }
 
         .accordion-inner {
@@ -167,25 +167,6 @@
             margin-bottom: var(--space-lg);
         }
 
-        .screenshot-row {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1rem;
-            margin-bottom: var(--space-lg);
-        }
-
-        .screenshot-row img {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid var(--border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .screenshot-row img:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-md);
-        }
-
         .project-links-row {
             display: flex;
             gap: 1rem;
@@ -219,6 +200,35 @@
 
         .healthcare-box strong {
             color: var(--text-primary);
+        }
+
+        /* Screenshot Grid inside Accordion */
+        .screenshot-grid-accordion {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .screenshot-item-accordion {
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 1rem;
+            border: 1px solid var(--border);
+        }
+
+        .screenshot-item-accordion img {
+            width: 100%;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            margin-bottom: 0.75rem;
+        }
+
+        .screenshot-item-accordion p {
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+            text-align: center;
+            margin: 0;
+            line-height: 1.5;
         }
     </style>
 </head>
@@ -273,14 +283,41 @@
                     <span class="tag">Real-Time Analytics</span>
                 </div>
 
-                <!-- Screenshots -->
-                <div class="screenshot-row">
-                    <img src="images/pac-overlay.png" alt="Main probability dashboard interface">
-                    <img src="images/pac-team-tracker.png" alt="Multi-target tracking panel">
-                </div>
-
                 <!-- Accordion Sections -->
-                <p class="accordion-group-title">Technical Details (click to expand)</p>
+                <p class="accordion-group-title">Details (click to expand)</p>
+
+                <!-- Screenshots Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🖼️ Screenshots — Live Interface</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="screenshot-grid-accordion">
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/pac-overlay.png" alt="PAC Live Data main overlay panel showing pool state, target tracking, and probability calculations">
+                                    <p>Main overlay panel with live pool tracking, target selection, evolution family counting, and probability calculations updating in real-time</p>
+                                </div>
+                                
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/pac-team-tracker.png" alt="Team Tracker panel showing multi-target tracking with probability calculations">
+                                    <p>Team Tracker: Multi-target tracking with per-roll probability, expected rolls to hit confidence threshold, and combined probability across all targets</p>
+                                </div>
+                                
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/pac-game-view.png" alt="In-game view showing the extension overlay during live gameplay">
+                                    <p>Live gameplay view with minimized overlay showing pool state—expands on demand for full probability analysis</p>
+                                </div>
+                                
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/pac-speed-settings.png" alt="Polling speed settings from 250ms to 5 seconds">
+                                    <p>Configurable polling speeds from 250ms to 5s, balancing update frequency with performance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="accordion-item">
                     <button class="accordion-header">
@@ -413,14 +450,31 @@
                     <span class="tag">GDScript</span>
                 </div>
 
-                <!-- Screenshots -->
-                <div class="screenshot-row">
-                    <img src="images/fishing-bingo-1.png" alt="Game interface showing state management">
-                    <img src="images/fishing-bingo-2.png" alt="Gameplay systems">
-                </div>
-
                 <!-- Accordion Sections -->
-                <p class="accordion-group-title">Technical Details (click to expand)</p>
+                <p class="accordion-group-title">Details (click to expand)</p>
+
+                <!-- Screenshots Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🖼️ Screenshots — Application Interface</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="screenshot-grid-accordion">
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/fishing-bingo-1.png" alt="Fishing Bingo inventory and state management interface">
+                                    <p>Server/client inventory synchronization with persistent state management across sessions</p>
+                                </div>
+                                
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/fishing-bingo-2.png" alt="Fishing Bingo gameplay interface">
+                                    <p>Core gameplay loop with real-time state updates and user interaction handling</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="accordion-item">
                     <button class="accordion-header">
@@ -550,9 +604,6 @@
             button.addEventListener('click', () => {
                 const item = button.parentElement;
                 const isActive = item.classList.contains('active');
-                
-                // Optional: close others in same group
-                // item.parentElement.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
                 
                 if (isActive) {
                     item.classList.remove('active');
