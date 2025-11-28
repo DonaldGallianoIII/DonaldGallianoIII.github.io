@@ -433,20 +433,21 @@
         <div class="container">
             <div class="project-card">
                 <div class="project-card-header">
-                    <h2>Commercial Software Release — Full SDLC</h2>
-                    <p class="project-subtitle">Steam Platform · Godot 4.4 · Commercial Release · "Fishing Bingo"</p>
+                    <h2>Real-Time Analytics Dashboard & Commercial Release</h2>
+                    <p class="project-subtitle">Steam Platform · Godot 4.4 · Built-in BI Dashboard · "Fishing Bingo"</p>
                 </div>
 
                 <div class="project-tldr">
                     <h3>TL;DR</h3>
-                    <p>Designed and shipped a commercial game to Steam to prove I can execute the full software development lifecycle—from requirements to production deployment, including platform compliance, QA, and release management. The game itself is secondary; the process is the point.</p>
+                    <p>Built and shipped a commercial product to Steam featuring a real-time analytics dashboard with KPI tracking, data visualization, and multi-user state synchronization. The game is the delivery vehicle; the analytics system is the technical showcase.</p>
                 </div>
 
                 <div class="project-tags-row">
-                    <span class="tag">Release Management</span>
-                    <span class="tag">QA Testing</span>
-                    <span class="tag">Platform Compliance</span>
+                    <span class="tag">Real-Time Dashboard</span>
+                    <span class="tag">Data Visualization</span>
+                    <span class="tag">KPI Tracking</span>
                     <span class="tag">State Management</span>
+                    <span class="tag">Release Management</span>
                     <span class="tag">GDScript</span>
                 </div>
 
@@ -456,21 +457,65 @@
                 <!-- Screenshots Accordion -->
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <h4>🖼️ Screenshots — Application Interface</h4>
+                        <h4>🖼️ Screenshots — Analytics Dashboard & Game Interface</h4>
                         <span class="accordion-icon">+</span>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-inner">
                             <div class="screenshot-grid-accordion">
                                 <div class="screenshot-item-accordion">
-                                    <img src="images/fishing-bingo-1.png" alt="Fishing Bingo inventory and state management interface">
-                                    <p>Server/client inventory synchronization with persistent state management across sessions</p>
+                                    <img src="images/fishing-bingo-stats.png" alt="Session Statistics dashboard showing real-time KPIs, distribution charts, and performance tracking">
+                                    <p>Session Statistics dashboard: Real-time KPIs (fish/min, catch rate), rarity distribution bar charts, ranked leaderboards, server vs personal performance tracking, and timeline data—all updating live during gameplay</p>
                                 </div>
                                 
                                 <div class="screenshot-item-accordion">
-                                    <img src="images/fishing-bingo-2.png" alt="Fishing Bingo gameplay interface">
-                                    <p>Core gameplay loop with real-time state updates and user interaction handling</p>
+                                    <img src="images/fishing-bingo-game.png" alt="Main game interface showing multi-player tracking and server/personal inventory synchronization">
+                                    <p>Game interface with multi-player state tracking (4 players with live status), server vs personal inventory grids showing real-time synchronization, and per-player metrics (bingo progress, scores)</p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>📊 Analytics Dashboard — Built-in BI System</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>The game includes a full analytics dashboard that tracks session and lifetime metrics in real-time.</p>
+                            <ul>
+                                <li><strong>KPI Cards:</strong> Session duration, fish caught, catch rate %, fish/minute efficiency</li>
+                                <li><strong>Distribution Charts:</strong> Horizontal bar visualization of catches by rarity tier (Common → Legendary)</li>
+                                <li><strong>Ranked Leaderboards:</strong> Top catches with count visualization</li>
+                                <li><strong>Performance Tracking:</strong> Personal vs Server bingo completion, cells marked, fastest times</li>
+                                <li><strong>Timeline Data:</strong> Bingo completion timestamps and score progression over time</li>
+                                <li><strong>Collapsible Sections:</strong> Expandable panels for detailed metrics (Score Progression, Power-Up Usage)</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Same dashboard patterns used in clinical operations—KPI cards for census/throughput, distribution charts for patient acuity, timeline tracking for length of stay.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🔄 State Management — Multi-User Synchronization</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>The game tracks complex state across multiple players and inventory systems simultaneously.</p>
+                            <ul>
+                                <li><strong>Server vs Personal Inventories:</strong> Two synchronized grids tracking shared and individual item collections</li>
+                                <li><strong>Multi-Player State:</strong> Real-time tracking of 4 players with bingo progress and scores</li>
+                                <li><strong>Persistent Storage:</strong> Session data saved and loaded with validation and error recovery</li>
+                                <li><strong>Live Updates:</strong> All metrics refresh in real-time as game state changes</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Same complexity as managing patient data across units—census boards tracking multiple patients with shared resources and individual status.</p>
                             </div>
                         </div>
                     </div>
@@ -514,47 +559,6 @@
                             <div class="healthcare-box">
                                 <p><strong>Healthcare parallel:</strong> Clinical software requires the same "it must work" standard—failures have real consequences.</p>
                             </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h4>🔄 State Management — Handling Complex Data</h4>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="accordion-inner">
-                            <p>The game tracks inventory, progress, and settings across sessions—requiring careful data handling.</p>
-                            <ul>
-                                <li>Server/client inventory synchronization systems</li>
-                                <li>Persistent save/load with data validation and error recovery</li>
-                                <li>Session state tracking for seamless user experience</li>
-                                <li>Configuration management for gameplay parameters</li>
-                            </ul>
-                            <div class="healthcare-box">
-                                <p><strong>Healthcare parallel:</strong> Patient data requires the same careful state management—persistence, validation, and recovery from errors.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        <h4>📋 Full SDLC Execution</h4>
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <div class="accordion-inner">
-                            <p>This project demonstrates every phase of software development.</p>
-                            <ul>
-                                <li><strong>Requirements:</strong> Gathered through player feedback and market research</li>
-                                <li><strong>Design:</strong> Architected systems for maintainability and extensibility</li>
-                                <li><strong>Development:</strong> Iterative builds with milestone planning</li>
-                                <li><strong>Testing:</strong> Comprehensive QA before each release</li>
-                                <li><strong>Deployment:</strong> Production release through regulated platform</li>
-                                <li><strong>Maintenance:</strong> Post-launch monitoring and patch deployment</li>
-                            </ul>
                         </div>
                     </div>
                 </div>
