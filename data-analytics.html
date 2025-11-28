@@ -8,6 +8,219 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Accordion Styles */
+        .accordion-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-item:hover {
+            border-color: var(--primary);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 1.25rem 1.5rem;
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            font-family: inherit;
+            transition: background 0.2s ease;
+        }
+
+        .accordion-header:hover {
+            background: var(--bg-light);
+        }
+
+        .accordion-header h4 {
+            font-size: var(--text-base);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .accordion-icon {
+            font-size: 1.25rem;
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        .accordion-item.active .accordion-icon {
+            transform: rotate(45deg);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 2000px;
+        }
+
+        .accordion-inner {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+        }
+
+        .accordion-inner ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .accordion-inner li {
+            padding: 0.5rem 0;
+            padding-left: 1.25rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            line-height: 1.6;
+        }
+
+        .accordion-inner li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        .accordion-inner p {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .accordion-inner p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Project Card Compact */
+        .project-card {
+            background: white;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            padding: var(--space-lg);
+            margin-bottom: var(--space-xl);
+        }
+
+        .project-card-header {
+            margin-bottom: var(--space-md);
+        }
+
+        .project-card-header h2 {
+            font-size: var(--text-2xl);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .project-subtitle {
+            color: var(--text-secondary);
+            font-size: var(--text-sm);
+            margin-bottom: 1rem;
+        }
+
+        .project-tldr {
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), rgba(0, 212, 255, 0.05));
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.25rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .project-tldr h3 {
+            font-size: var(--text-sm);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .project-tldr p {
+            color: var(--text-secondary);
+            font-size: var(--text-base);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .project-tags-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .screenshot-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-bottom: var(--space-lg);
+        }
+
+        .screenshot-row img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .screenshot-row img:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .project-links-row {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding-top: var(--space-md);
+            border-top: 1px solid var(--border);
+        }
+
+        .accordion-group-title {
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Healthcare Translation Box */
+        .healthcare-box {
+            background: var(--bg-light);
+            border-left: 4px solid var(--primary);
+            padding: 1rem 1.25rem;
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        .healthcare-box p {
+            margin: 0;
+            font-size: var(--text-sm);
+            color: var(--text-secondary);
+        }
+
+        .healthcare-box strong {
+            color: var(--text-primary);
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -24,7 +237,6 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="consulting.html">Consulting</a></li>
                 <li><a href="data-analytics.html" class="active">Data Analytics</a></li>
-         
                 <li><a href="resume.html">Resume</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -35,112 +247,143 @@
     <section class="page-header">
         <div class="container">
             <h1>Technical Implementations & Decision Support Systems</h1>
-            <p>Bridging the gap between clinical strategy and engineering execution by building real-time data tools, ETL pipelines, and commercial software products</p>
+            <p>Bridging clinical strategy and engineering execution through real-time data tools, ETL pipelines, and shipped software products</p>
         </div>
     </section>
 
-    <!-- Featured Project 1: Probability Engine -->
+    <!-- Project 1: Probability Engine -->
     <section class="section">
         <div class="container">
-            <div class="project-featured">
-                <div class="project-header">
+            <div class="project-card">
+                <div class="project-card-header">
                     <h2>Real-Time Probability & Decision Support Engine</h2>
-                    <p style="color: #6b7280; margin-top: 0.5rem;">Chrome Extension · v2.17.0 · Open Source · Pokemon Auto Chess</p>
-                    <div class="project-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">ETL Pipeline</span>
-                        <span class="tag">Predictive Modeling</span>
-                        <span class="tag">Chrome Extension</span>
-                        <span class="tag">DOM Injection</span>
-                    </div>
+                    <p class="project-subtitle">Chrome Extension · v2.17.0 · Open Source · 400+ Active Users</p>
                 </div>
 
-                <div class="project-summary">
-                    <h3>The Problem</h3>
-                    <p>High-complexity gaming environments generate continuous data streams but rarely surface actionable analytics to users. Players were forced to make probability-based decisions with incomplete information—a gap that mirrors clinical decision-making without proper decision support tools.</p>
-                    
-                    <h3>What I Built</h3>
-                    <p>Architected a local-first browser extension that functions as a Clinical Decision Support System (CDSS) prototype. The tool scrapes live DOM data from a closed-source application, structures 408kb+ of unstructured inputs into lookup tables, and calculates real-time risk/reward probabilities to guide user decision-making under uncertainty. The engine processes state across 8 simultaneous players, tracking pool depletion and calculating geometric distribution probabilities with configurable confidence intervals.</p>
+                <div class="project-tldr">
+                    <h3>TL;DR</h3>
+                    <p>Built a Chrome extension that extracts live data from a closed-source game, processes it through statistical models, and displays real-time probability calculations to help users make better decisions. Think of it as a prototype for clinical decision support—same architecture, different domain.</p>
                 </div>
 
-                <div class="project-screenshots">
-                    <h3>Live Interface</h3>
-                    
-                    <div class="screenshot-grid">
-                        <div class="screenshot-item">
-                            <img src="images/pac-overlay.png" alt="Main overlay panel showing pool state, target tracking, and probability calculations">
-                            <p class="screenshot-caption">Main overlay panel with live pool tracking, target selection, evolution family counting, and probability calculations updating in real-time</p>
-                        </div>
-                        
-                        <div class="screenshot-item">
-                            <img src="images/pac-team-tracker.png" alt="Team Tracker panel showing multi-target tracking with probability calculations">
-                            <p class="screenshot-caption">Team Tracker: Multi-target tracking with per-roll probability, expected rolls to hit confidence threshold, and combined probability across all targets</p>
-                        </div>
-                        
-                        <div class="screenshot-item">
-                            <img src="images/pac-game-view.png" alt="In-game view showing the extension overlay during live gameplay">
-                            <p class="screenshot-caption">Live gameplay view with minimized overlay showing pool state—expands on demand for full probability analysis</p>
-                        </div>
-                        
-                        <div class="screenshot-item">
-                            <img src="images/pac-speed-settings.png" alt="Polling speed settings from 250ms to 5 seconds">
-                            <p class="screenshot-caption">Configurable polling speeds from 250ms to 5s, balancing update frequency with performance</p>
-                        </div>
-                    </div>
+                <div class="project-tags-row">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">ETL Pipeline</span>
+                    <span class="tag">Statistical Modeling</span>
+                    <span class="tag">Chrome Extension</span>
+                    <span class="tag">Real-Time Analytics</span>
                 </div>
 
-                <div class="project-technical">
-                    <h3>Technical Architecture</h3>
-                    <div class="capabilities-grid">
-                        <div class="capability-card">
-                            <h4>🔍 Data Extraction (ETL)</h4>
+                <!-- Screenshots -->
+                <div class="screenshot-row">
+                    <img src="images/pac-overlay.png" alt="Main probability dashboard interface">
+                    <img src="images/pac-team-tracker.png" alt="Multi-target tracking panel">
+                </div>
+
+                <!-- Accordion Sections -->
+                <p class="accordion-group-title">Technical Details (click to expand)</p>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🔍 Data Extraction — How I Get the Data</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>The game doesn't provide an API, so I had to reverse-engineer how to access its internal state.</p>
                             <ul>
-                                <li>Engineered custom ETL pipeline using DOM injection to extract hidden state data</li>
-                                <li>Recursive window object traversal to locate game state in closed-source application</li>
-                                <li>Cross-context communication via window.postMessage for secure data piping</li>
-                                <li>Cross-player state aggregation (8 simultaneous players)</li>
+                                <li>Wrote a recursive search algorithm to find game data hidden in the browser's memory</li>
+                                <li>Injected a script into the page to extract data the game doesn't expose</li>
+                                <li>Built a secure communication pipeline between my extension and the page</li>
+                                <li>Aggregates data from all 8 players in real-time</li>
                             </ul>
-                        </div>
-                        
-                        <div class="capability-card">
-                            <h4>📊 Data Transformation</h4>
-                            <ul>
-                                <li>Cleaned 408kb game data into structured lookup tables</li>
-                                <li>1,060+ entities mapped to rarities and evolution chains</li>
-                                <li>Pool size tracking by rarity tier with depletion modeling</li>
-                                <li>Wild unit detection with PVE round state awareness</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="capability-card">
-                            <h4>📈 Probability Engine</h4>
-                            <ul>
-                                <li>Hypergeometric/geometric distribution for expected value calculations</li>
-                                <li>Per-slot probability with 6-slot shop aggregation</li>
-                                <li>Configurable confidence intervals (default 75%)</li>
-                                <li>Combined probability across multiple targets with dynamic coefficients</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="capability-card">
-                            <h4>⚡ Performance Optimization</h4>
-                            <ul>
-                                <li>Local-first architecture with no external API dependencies</li>
-                                <li>Dirty checking algorithms (state hashing) to prevent unnecessary DOM updates</li>
-                                <li>Polling throttling from 250ms to 5s based on user preference</li>
-                                <li>LocalStorage persistence for user preferences and settings</li>
-                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> This is the same approach used when integrating with legacy EMR systems that don't have modern APIs—you work with what's available.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-impact">
-                    <h3>Healthcare Translation</h3>
-                    <p>This project demonstrates the full analytics lifecycle that applies directly to healthcare environments: identifying a decision-support gap, extracting data from an undocumented system, transforming messy source data into clean structured formats, building statistical models, and delivering real-time insights through an intuitive interface. The same architecture pattern applies to clinical analytics—extracting EHR data, cleaning it for analysis, calculating quality metrics, and surfacing actionable insights to clinicians under time pressure.</p>
-                    <p style="margin-top: 1rem;"><strong>Outcome:</strong> 90% reduction in manual analysis time; currently serving an active user base on the Chrome Web Store.</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>📊 Data Processing — Cleaning 408KB of Raw Data</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>The raw game data is messy and unstructured. I transform it into clean lookup tables.</p>
+                            <ul>
+                                <li>Processed 1,060+ game entities into structured reference tables</li>
+                                <li>Mapped complex relationships (evolution chains, rarity tiers, pool sizes)</li>
+                                <li>Built real-time tracking for resource depletion across all players</li>
+                                <li>Handle edge cases like special game rounds with different rules</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Same workflow as cleaning patient data—taking messy inputs and structuring them for analysis.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="project-links">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>📈 Probability Engine — The Math</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>The core of the tool: calculating the odds of specific outcomes based on current game state.</p>
+                            <ul>
+                                <li>Implemented geometric distribution to calculate "expected rolls to success"</li>
+                                <li>Per-slot probability calculations with multi-slot aggregation</li>
+                                <li>Configurable confidence intervals (e.g., "75% chance within X attempts")</li>
+                                <li>Dynamic probability adjustments based on changing game conditions</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Same statistical foundations used in clinical risk stratification and predictive modeling for patient outcomes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>⚡ Performance — Making It Fast</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Real-time tools need to be fast. Here's how I kept it responsive.</p>
+                            <ul>
+                                <li>Local-first architecture—no external API calls, everything runs in-browser</li>
+                                <li>"Dirty checking" to only update the display when data actually changes</li>
+                                <li>Configurable polling speeds (250ms to 5s) based on user preference</li>
+                                <li>State caching to prevent browser slowdown during intensive calculations</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Performance optimization matters when clinicians need dashboards that respond instantly during patient encounters.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🎯 Outcome & Impact</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li><strong>90% reduction</strong> in manual analysis time for users</li>
+                                <li><strong>400+ active users</strong> on the Chrome Web Store</li>
+                                <li>Continuous updates based on user feedback and game changes</li>
+                                <li>Open source codebase demonstrating full implementation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-links-row">
                     <a href="https://donaldgallianoiii.github.io/Pokemon-Auto-Chess-Live-Data-Calculator/" class="cta-button primary" target="_blank">View Project Site</a>
                     <a href="https://github.com/DonaldGallianoIII/Pokemon-Auto-Chess-Live-Data-Calculator" class="cta-button secondary" target="_blank">View Code on GitHub</a>
                 </div>
@@ -148,100 +391,121 @@
         </div>
     </section>
 
-    <!-- Featured Project 2: Fishing Bingo -->
-    <section class="section" style="background: #f8f9fa;">
+    <!-- Project 2: Fishing Bingo -->
+    <section class="section" style="background: var(--bg-light);">
         <div class="container">
-            <div class="project-featured">
-                <div class="project-header">
-                    <h2>Multi-User Resource Management Simulation</h2>
-                    <p style="color: #6b7280; margin-top: 0.5rem;">Commercial Release · Steam · Godot 4.4 · Fishing Bingo</p>
-                    <div class="project-tags">
-                        <span class="tag">Release Management</span>
-                        <span class="tag">QA/Compliance</span>
-                        <span class="tag">State Management</span>
-                        <span class="tag">GDScript</span>
-                        <span class="tag">Steam Integration</span>
+            <div class="project-card">
+                <div class="project-card-header">
+                    <h2>Commercial Software Release — Full SDLC</h2>
+                    <p class="project-subtitle">Steam Platform · Godot 4.4 · Commercial Release · "Fishing Bingo"</p>
+                </div>
+
+                <div class="project-tldr">
+                    <h3>TL;DR</h3>
+                    <p>Designed and shipped a commercial game to Steam to prove I can execute the full software development lifecycle—from requirements to production deployment, including platform compliance, QA, and release management. The game itself is secondary; the process is the point.</p>
+                </div>
+
+                <div class="project-tags-row">
+                    <span class="tag">Release Management</span>
+                    <span class="tag">QA Testing</span>
+                    <span class="tag">Platform Compliance</span>
+                    <span class="tag">State Management</span>
+                    <span class="tag">GDScript</span>
+                </div>
+
+                <!-- Screenshots -->
+                <div class="screenshot-row">
+                    <img src="images/fishing-bingo-1.png" alt="Game interface showing state management">
+                    <img src="images/fishing-bingo-2.png" alt="Gameplay systems">
+                </div>
+
+                <!-- Accordion Sections -->
+                <p class="accordion-group-title">Technical Details (click to expand)</p>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🚀 Release Engineering — Shipping to Production</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Getting software onto a major distribution platform requires navigating real compliance and certification processes.</p>
+                            <ul>
+                                <li>Integrated Steamworks SDK for platform authentication and features</li>
+                                <li>Configured build pipelines for production deployment</li>
+                                <li>Managed version control and release branch strategy</li>
+                                <li>Created all required store assets, metadata, and compliance documentation</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Same rigor required for deploying clinical software—compliance documentation, certification, controlled release processes.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="project-summary">
-                    <h3>The Problem</h3>
-                    <p>Demonstrating full-lifecycle software delivery skills requires shipping a commercial product through a real distribution platform with strict compliance requirements, not just code samples. Most portfolio projects never face the rigor of platform certification, user acceptance testing, or production deployment.</p>
-                    
-                    <h3>What I Built</h3>
-                    <p>Designed and shipped a commercial simulation product to Steam to verify end-to-end software development lifecycle capabilities. The game features complex state management between server and client inventories, persistent data handling, and configurable gameplay systems. Managed strict platform compliance (Steamworks SDK integration), conducted rigorous User Acceptance Testing (UAT), and ensured zero-crash stability across diverse hardware configurations.</p>
-                </div>
-
-                <div class="project-screenshots">
-                    <h3>Application Interface</h3>
-                    
-                    <div class="screenshot-grid">
-                        <div class="screenshot-item">
-                            <!-- PLACEHOLDER: Screenshot 1 - suggest the inventory/state management view -->
-                            <img src="images/fishing-bingo-1.png" alt="Fishing Bingo inventory and state management interface">
-                            <p class="screenshot-caption">Server/client inventory synchronization with persistent state management across sessions</p>
-                        </div>
-                        
-                        <div class="screenshot-item">
-                            <!-- PLACEHOLDER: Screenshot 2 - suggest gameplay or bingo card view -->
-                            <img src="images/fishing-bingo-2.png" alt="Fishing Bingo gameplay interface">
-                            <p class="screenshot-caption">Core gameplay loop with real-time state updates and user interaction handling</p>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🧪 Quality Assurance — Testing for Real Users</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>When real users pay for software, it has to work. No excuses.</p>
+                            <ul>
+                                <li>Conducted UAT across multiple hardware configurations</li>
+                                <li>Identified and documented edge cases through systematic testing</li>
+                                <li>Performance profiling to ensure smooth operation</li>
+                                <li>Achieved zero-crash stability verification before launch</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Clinical software requires the same "it must work" standard—failures have real consequences.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-technical">
-                    <h3>Technical Focus Areas</h3>
-                    <div class="capabilities-grid">
-                        <div class="capability-card">
-                            <h4>🚀 Release Engineering</h4>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🔄 State Management — Handling Complex Data</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>The game tracks inventory, progress, and settings across sessions—requiring careful data handling.</p>
                             <ul>
-                                <li>Full Steamworks SDK integration and platform certification</li>
-                                <li>Build pipeline configuration for production deployment</li>
-                                <li>Version control and release branch management</li>
-                                <li>Store page assets, metadata, and compliance documentation</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="capability-card">
-                            <h4>🧪 Quality Assurance</h4>
-                            <ul>
-                                <li>Rigorous UAT across multiple hardware configurations</li>
-                                <li>Edge case identification and regression testing</li>
-                                <li>Performance profiling and optimization</li>
-                                <li>Zero-crash stability verification pre-launch</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="capability-card">
-                            <h4>🔄 State Management</h4>
-                            <ul>
-                                <li>Complex inventory synchronization (server vs. personal)</li>
-                                <li>Persistent save/load systems with data validation</li>
-                                <li>Session state tracking and recovery handling</li>
+                                <li>Server/client inventory synchronization systems</li>
+                                <li>Persistent save/load with data validation and error recovery</li>
+                                <li>Session state tracking for seamless user experience</li>
                                 <li>Configuration management for gameplay parameters</li>
                             </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Patient data requires the same careful state management—persistence, validation, and recovery from errors.</p>
+                            </div>
                         </div>
-                        
-                        <div class="capability-card">
-                            <h4>📋 SDLC Execution</h4>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>📋 Full SDLC Execution</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>This project demonstrates every phase of software development.</p>
                             <ul>
-                                <li>Requirements gathering through player feedback</li>
-                                <li>Iterative development with milestone planning</li>
-                                <li>Documentation for maintenance and updates</li>
-                                <li>Post-launch monitoring and patch deployment</li>
+                                <li><strong>Requirements:</strong> Gathered through player feedback and market research</li>
+                                <li><strong>Design:</strong> Architected systems for maintainability and extensibility</li>
+                                <li><strong>Development:</strong> Iterative builds with milestone planning</li>
+                                <li><strong>Testing:</strong> Comprehensive QA before each release</li>
+                                <li><strong>Deployment:</strong> Production release through regulated platform</li>
+                                <li><strong>Maintenance:</strong> Post-launch monitoring and patch deployment</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-impact">
-                    <h3>Healthcare Translation</h3>
-                    <p>Shipping commercial software through a regulated platform (Steam) demonstrates the same competencies required for healthcare IT deployment: navigating compliance requirements, managing complex state across distributed systems, conducting thorough QA, and supporting production systems post-launch. The discipline of "it has to actually work for real users" translates directly to clinical software where failures have consequences.</p>
-                </div>
-
-                <div class="project-links">
-                    <a href="#" class="cta-button primary" target="_blank">View on Steam</a>
+                <div class="project-links-row">
                     <a href="https://github.com/DonaldGallianoIII/FishingBingo" class="cta-button secondary" target="_blank">View Code on GitHub</a>
                 </div>
             </div>
@@ -280,6 +544,24 @@
         </div>
     </footer>
 
+    <script>
+        // Accordion functionality
+        document.querySelectorAll('.accordion-header').forEach(button => {
+            button.addEventListener('click', () => {
+                const item = button.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Optional: close others in same group
+                // item.parentElement.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
+                
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
