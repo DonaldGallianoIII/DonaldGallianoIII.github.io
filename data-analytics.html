@@ -230,6 +230,27 @@
             margin: 0;
             line-height: 1.5;
         }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: var(--text-xs);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge.live {
+            background: rgba(34, 197, 94, 0.1);
+            color: #16a34a;
+        }
+
+        .status-badge.production {
+            background: rgba(0, 102, 255, 0.1);
+            color: var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -261,18 +282,156 @@
         </div>
     </section>
 
-    <!-- Project 1: Probability Engine -->
+    <!-- Project 1: UCN Operations Platform -->
     <section class="section">
         <div class="container">
             <div class="project-card">
                 <div class="project-card-header">
-                    <h2>Real-Time Probability & Decision Support Engine</h2>
-                    <p class="project-subtitle">Chrome Extension · v2.17.0 · Open Source · 400+ Active Users</p>
+                    <h2>United Cajun Navy Operations Platform</h2>
+                    <p class="project-subtitle">SaaS Contract · Web Application · <span class="status-badge live">In Production</span></p>
                 </div>
 
                 <div class="project-tldr">
                     <h3>TL;DR</h3>
-                    <p>Built a Chrome extension that extracts live data from a closed-source game, processes it through statistical models, and displays real-time probability calculations to help users make better decisions. Think of it as a prototype for clinical decision support—same architecture, different domain.</p>
+                    <p>Built a full-stack operations platform for a disaster relief nonprofit. Includes a real-time deployment map for emergency response coordination, a Grant Query Builder that generates grant-ready narratives from operational data using SQL, and a Supabase backend migrated from legacy Excel tracking. Ongoing SaaS support contract.</p>
+                </div>
+
+                <div class="project-tags-row">
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Supabase</span>
+                    <span class="tag">Netlify</span>
+                    <span class="tag">SaaS</span>
+                    <span class="tag">Data Migration</span>
+                    <span class="tag">BI Dashboard</span>
+                </div>
+
+                <!-- Accordion Sections -->
+                <p class="accordion-group-title">Details (click to expand)</p>
+
+                <!-- Screenshots Accordion -->
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🖼️ Screenshots — Live Platform</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <div class="screenshot-grid-accordion">
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/ucn-deployment-map.png" alt="UCN Deployment Map showing real-time emergency response pins">
+                                    <p>Deployment Map: Real-time pin drops with severity classification (Critical/Warning/Active/Past), zip code search, and admin dashboard for managing emergency response locations</p>
+                                </div>
+                                
+                                <div class="screenshot-item-accordion">
+                                    <img src="images/ucn-grant-builder.png" alt="Grant Query Builder interface for generating grant narratives">
+                                    <p>Grant Query Builder: SQL-powered query system generating grant-ready narratives from operational data with customizable templates and one-click CSV/PDF export</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🗺️ Deployment Map — Emergency Response Coordination</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Real-time mapping system for coordinating disaster relief operations across multiple locations.</p>
+                            <ul>
+                                <li>Pin drops with severity classification: Critical, Warning, Active, Past, Weather</li>
+                                <li>Zip code search for localized deployment views</li>
+                                <li>Admin dashboard for managing pins and event details</li>
+                                <li>Event cards with date, location, summary, and action buttons</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Same architecture as hospital bed management or ambulance dispatch systems—real-time status tracking across distributed locations.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>📊 Grant Query Builder — BI for Nonprofits</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Custom BI tool that transforms operational data into grant-ready narratives.</p>
+                            <ul>
+                                <li>SQL-powered queries against Supabase backend</li>
+                                <li>Quick templates: Total Impact Summary, Geographic Reach, Volunteer Contribution, Timeline of Response</li>
+                                <li>Customizable parameters: time range, location, event type, grouping</li>
+                                <li>Output formats: Narrative text, CSV export, PDF report</li>
+                                <li>Pre-built answers to common grant questions</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Same concept as quality reporting dashboards—translating operational data into compliance-ready narratives for CMS or Joint Commission.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🔄 Data Migration — Excel to Supabase</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <p>Migrated years of operational data from Excel spreadsheets into a structured database.</p>
+                            <ul>
+                                <li>Designed relational schema for events, volunteers, services, and metrics</li>
+                                <li>ETL pipeline to clean and transform legacy data</li>
+                                <li>Event logging with timestamps for audit trails</li>
+                                <li>Volunteer hours and service metrics tracking</li>
+                            </ul>
+                            <div class="healthcare-box">
+                                <p><strong>Healthcare parallel:</strong> Classic healthcare IT challenge—migrating from spreadsheet-based tracking to proper database systems while preserving historical data.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        <h4>🎯 Outcome & Ongoing Support</h4>
+                        <span class="accordion-icon">+</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="accordion-inner">
+                            <ul>
+                                <li><strong>In production</strong> — actively used for disaster response coordination</li>
+                                <li><strong>SaaS contract</strong> — ongoing support, bug fixes, and feature enhancements</li>
+                                <li><strong>Grant success</strong> — Query Builder reduces time to generate grant narratives from hours to minutes</li>
+                                <li><strong>Scalable architecture</strong> — ready to handle additional events and users as organization grows</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-links-row">
+                    <a href="https://unitedappdevelopment.netlify.app" class="cta-button primary" target="_blank">View Live Platform</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project 2: Predictive Analytics Platform -->
+    <section class="section" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="project-card">
+                <div class="project-card-header">
+                    <h2>Predictive Analytics Platform</h2>
+                    <p class="project-subtitle">Chrome Extension · v3.1.1 · Open Source · <span class="status-badge production">Active Users</span></p>
+                </div>
+
+                <div class="project-tldr">
+                    <h3>TL;DR</h3>
+                    <p>Built a Chrome extension that extracts live data from web applications, processes it through statistical models, and displays real-time probability calculations for decision support. Features competitive intelligence, resource pool tracking, and combined probability analysis. Same ETL and statistical modeling patterns applicable to clinical decision support.</p>
                 </div>
 
                 <div class="project-tags-row">
@@ -281,6 +440,7 @@
                     <span class="tag">Statistical Modeling</span>
                     <span class="tag">Chrome Extension</span>
                     <span class="tag">Real-Time Analytics</span>
+                    <span class="tag">DOM Extraction</span>
                 </div>
 
                 <!-- Accordion Sections -->
@@ -296,7 +456,7 @@
                         <div class="accordion-inner">
                             <div class="screenshot-grid-accordion">
                                 <div class="screenshot-item-accordion">
-                                    <img src="images/pac-overlay.png" alt="PAC Live Data main overlay panel showing pool state, target tracking, and probability calculations">
+                                    <img src="images/pac-overlay.png" alt="Main overlay panel showing pool state, target tracking, and probability calculations">
                                     <p>Main overlay panel with live pool tracking, target selection, evolution family counting, and probability calculations updating in real-time</p>
                                 </div>
                                 
@@ -306,13 +466,13 @@
                                 </div>
                                 
                                 <div class="screenshot-item-accordion">
-                                    <img src="images/pac-game-view.png" alt="In-game view showing the extension overlay during live gameplay">
-                                    <p>Live gameplay view with minimized overlay showing pool state—expands on demand for full probability analysis</p>
+                                    <img src="images/pac-game-view.png" alt="In-game view showing the extension overlay during live operation">
+                                    <p>Live view with minimized overlay showing pool state—expands on demand for full probability analysis</p>
                                 </div>
                                 
                                 <div class="screenshot-item-accordion">
-                                    <img src="images/pac-speed-settings.png" alt="Polling speed settings from 250ms to 5 seconds">
-                                    <p>Configurable polling speeds from 250ms to 5s, balancing update frequency with performance</p>
+                                    <img src="images/pac-speed-settings.png" alt="Polling speed settings from 30ms to 500ms">
+                                    <p>Configurable polling speeds from 30ms to 500ms, balancing update frequency with performance</p>
                                 </div>
                             </div>
                         </div>
@@ -321,20 +481,21 @@
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <h4>🔍 Data Extraction — How I Get the Data</h4>
+                        <h4>🔍 Data Extraction — Live DOM Parsing</h4>
                         <span class="accordion-icon">+</span>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>The game doesn't provide an API, so I had to reverse-engineer how to access its internal state.</p>
+                            <p>No API available, so I reverse-engineered the data extraction from live web applications.</p>
                             <ul>
-                                <li>Wrote a recursive search algorithm to find game data hidden in the browser's memory</li>
-                                <li>Injected a script into the page to extract data the game doesn't expose</li>
-                                <li>Built a secure communication pipeline between my extension and the page</li>
-                                <li>Aggregates data from all 8 players in real-time</li>
+                                <li>Recursive search algorithm to locate data in browser memory</li>
+                                <li>Script injection to extract data not exposed in the DOM</li>
+                                <li>Secure communication pipeline between extension and page</li>
+                                <li>Aggregates data from multiple sources in real-time</li>
+                                <li>30ms refresh rate for near-instant updates</li>
                             </ul>
                             <div class="healthcare-box">
-                                <p><strong>Healthcare parallel:</strong> This is the same approach used when integrating with legacy EMR systems that don't have modern APIs—you work with what's available.</p>
+                                <p><strong>Healthcare parallel:</strong> Same approach used when integrating with legacy systems lacking modern APIs—you work with what's available.</p>
                             </div>
                         </div>
                     </div>
@@ -342,20 +503,20 @@
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <h4>📊 Data Processing — Cleaning 408KB of Raw Data</h4>
+                        <h4>📊 Data Processing — ETL Pipeline</h4>
                         <span class="accordion-icon">+</span>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>The raw game data is messy and unstructured. I transform it into clean lookup tables.</p>
+                            <p>Raw data is messy and unstructured. I transform it into clean, queryable structures.</p>
                             <ul>
-                                <li>Processed 1,060+ game entities into structured reference tables</li>
+                                <li>Processed 1,060+ entities into structured reference tables</li>
                                 <li>Mapped complex relationships (evolution chains, rarity tiers, pool sizes)</li>
-                                <li>Built real-time tracking for resource depletion across all players</li>
-                                <li>Handle edge cases like special game rounds with different rules</li>
+                                <li>Real-time tracking for resource depletion across multiple actors</li>
+                                <li>Edge case handling for special conditions</li>
                             </ul>
                             <div class="healthcare-box">
-                                <p><strong>Healthcare parallel:</strong> Same workflow as cleaning patient data—taking messy inputs and structuring them for analysis.</p>
+                                <p><strong>Healthcare parallel:</strong> Same workflow as cleaning patient data—messy inputs structured for analysis.</p>
                             </div>
                         </div>
                     </div>
@@ -363,20 +524,21 @@
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <h4>📈 Probability Engine — The Math</h4>
+                        <h4>📈 Probability Engine — Statistical Modeling</h4>
                         <span class="accordion-icon">+</span>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>The core of the tool: calculating the odds of specific outcomes based on current game state.</p>
+                            <p>Core feature: calculating odds of specific outcomes based on current state.</p>
                             <ul>
-                                <li>Implemented geometric distribution to calculate "expected rolls to success"</li>
-                                <li>Per-slot probability calculations with multi-slot aggregation</li>
-                                <li>Configurable confidence intervals (e.g., "75% chance within X attempts")</li>
-                                <li>Dynamic probability adjustments based on changing game conditions</li>
+                                <li>Geometric distribution for "expected attempts to success"</li>
+                                <li>Per-slot probability with multi-slot aggregation</li>
+                                <li>Configurable confidence intervals</li>
+                                <li>Dynamic adjustments based on changing conditions</li>
+                                <li>Combined probability calculations across multiple targets</li>
                             </ul>
                             <div class="healthcare-box">
-                                <p><strong>Healthcare parallel:</strong> Same statistical foundations used in clinical risk stratification and predictive modeling for patient outcomes.</p>
+                                <p><strong>Healthcare parallel:</strong> Same statistical foundations as clinical risk stratification and predictive modeling.</p>
                             </div>
                         </div>
                     </div>
@@ -384,20 +546,20 @@
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <h4>⚡ Performance — Making It Fast</h4>
+                        <h4>🕵️ Competitive Intelligence — Counter-Analysis</h4>
                         <span class="accordion-icon">+</span>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-inner">
-                            <p>Real-time tools need to be fast. Here's how I kept it responsive.</p>
+                            <p>Track what others are doing to inform your own decisions.</p>
                             <ul>
-                                <li>Local-first architecture—no external API calls, everything runs in-browser</li>
-                                <li>"Dirty checking" to only update the display when data actually changes</li>
-                                <li>Configurable polling speeds (250ms to 5s) based on user preference</li>
-                                <li>State caching to prevent browser slowdown during intensive calculations</li>
+                                <li>Monitor board states across 8 concurrent actors</li>
+                                <li>Resource pool depletion tracking</li>
+                                <li>Contested resource identification</li>
+                                <li>Strategic recommendations based on competitive landscape</li>
                             </ul>
                             <div class="healthcare-box">
-                                <p><strong>Healthcare parallel:</strong> Performance optimization matters when clinicians need dashboards that respond instantly during patient encounters.</p>
+                                <p><strong>Healthcare parallel:</strong> Similar to market analysis dashboards—tracking competitor moves to inform strategic decisions.</p>
                             </div>
                         </div>
                     </div>
@@ -405,16 +567,16 @@
 
                 <div class="accordion-item">
                     <button class="accordion-header">
-                        <h4>🎯 Outcome & Impact</h4>
+                        <h4>🎯 Outcome & Distribution</h4>
                         <span class="accordion-icon">+</span>
                     </button>
                     <div class="accordion-content">
                         <div class="accordion-inner">
                             <ul>
-                                <li><strong>90% reduction</strong> in manual analysis time for users</li>
-                                <li><strong>400+ active users</strong> on the Chrome Web Store</li>
-                                <li>Continuous updates based on user feedback and game changes</li>
-                                <li>Open source codebase demonstrating full implementation</li>
+                                <li><strong>Active user community</strong> using the tool for strategic decision-making</li>
+                                <li><strong>Pending Chrome Web Store approval</strong> for public distribution</li>
+                                <li><strong>Open source codebase</strong> demonstrating full implementation</li>
+                                <li><strong>Continuous updates</strong> based on user feedback</li>
                             </ul>
                         </div>
                     </div>
@@ -428,8 +590,8 @@
         </div>
     </section>
 
-    <!-- Project 2: Fishing Bingo -->
-    <section class="section" style="background: var(--bg-light);">
+    <!-- Project 3: Fishing Bingo -->
+    <section class="section">
         <div class="container">
             <div class="project-card">
                 <div class="project-card-header">
@@ -571,25 +733,25 @@
     </section>
 
     <!-- Skills Summary -->
-    <section class="section">
+    <section class="section" style="background: var(--bg-light);">
         <div class="container">
             <h2 style="text-align: center; margin-bottom: 2rem;">Technical Skills</h2>
             <div class="capabilities-grid">
                 <div class="capability-card">
                     <h4>Languages & Tools</h4>
-                    <p>JavaScript, Python, SQL, GDScript, HTML/CSS, Git</p>
+                    <p>JavaScript, Python, SQL, GDScript, HTML/CSS, Git, Supabase, Netlify</p>
                 </div>
                 <div class="capability-card">
                     <h4>BI & Visualization</h4>
-                    <p>Tableau, Power BI, Excel (advanced), Custom Dashboards</p>
+                    <p>Tableau, Power BI, Excel (advanced), Custom Dashboards, KPI Development</p>
                 </div>
                 <div class="capability-card">
                     <h4>Healthcare Systems</h4>
-                    <p>Epic EHR, HL7/FHIR, ICD-10/CPT, HIPAA Compliance</p>
+                    <p>Epic EHR (Sphinx Certified), HL7/FHIR, ICD-10/CPT, HIPAA Compliance</p>
                 </div>
                 <div class="capability-card">
                     <h4>Methods</h4>
-                    <p>ETL Pipelines, Statistical Modeling, QA/UAT, Release Management</p>
+                    <p>ETL Pipelines, Statistical Modeling, QA/UAT, Release Management, SaaS</p>
                 </div>
             </div>
         </div>
